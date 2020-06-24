@@ -1,5 +1,12 @@
 //Objective is to see whether a linked list is a palindrome.
 
+class Node {
+    constructor(val, next = null) { //if next is not given, assume it is empty
+      this.val = val
+      this.next = next
+    }
+}
+
 class LinkedList {
     constructor() {
       this.head = null
