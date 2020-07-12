@@ -56,3 +56,45 @@ while (left < right) {
 }
     
 return true
+
+
+//O(n) solution that gets the middle of the list, reverses the second half, and compares the two halves
+
+let slow = head
+let fast = head
+while (fast && fast.next) {
+    slow = slow.next 
+    fast = fast.next.next
+}
+
+let reversedHead = reverse(slow)
+let temp = reversedHead
+
+while (head && reversedHead) {
+    if (head.val !== reversedHead.val) {
+        return false
+    }
+
+    head = head.next
+    reversedHead = reversedHead.next
+}
+reverse(temp)
+
+if (head && reversedHead) {
+    return true
+}
+
+return true
+
+function reverse(curr) {
+    let prev = null
+
+    while (curr) {
+        let temp = curr.next 
+        curr.next = prev
+        prev = curr
+        curr = temp
+    }
+
+    return prev
+} 
